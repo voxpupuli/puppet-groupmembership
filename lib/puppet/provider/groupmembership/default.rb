@@ -4,9 +4,14 @@ Puppet::Type.type(:groupmembership).provide(:default) do
   #commands :getent => '/usr/bin/getent'
 
   def members
-    output = execute(['/usr/bin/getent', 'group', resource[:name]], :failonfail => false, :combine => true)
-    fields = output.split(':', 4)
+    output = getent_group()
+    fields = output.split(':')
     member_list = fields[-1].split(',')
     return member_list
+  end
+
+  def getent_group
+    output = execute(['/usr/bin/getent', 'group', resource[:name]], :failonfail => false, :combine => true)
+    return output
   end
 end

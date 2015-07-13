@@ -2,13 +2,11 @@ Puppet::Type.type(:groupmembership).provide(:gpasswd, :parent => :default) do
   confine :kernel => [:linux]
   defaultfor :kernel => [:linux]
 
-  commands :gpasswd => '/usr/bin/gpasswd'
-
   def members=(value)
     if resource[:exclusive]
-      gpasswd(['-M', resource[:members].join(',')])
+      execute(['/usr/bin/gpasswd', '-M', resource[:members].join(','), resource[:name]], :failonfail => false)
     else
-      gpasswd(['-m', resource[:members].join(',')])
+      execute(['/usr/bin/gpasswd', '-m', resource[:members].join(','), resource[:name]], :failonfail => false)
     end
   end
 end

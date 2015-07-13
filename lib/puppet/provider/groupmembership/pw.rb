@@ -6,9 +6,9 @@ Puppet::Type.type(:groupmembership).provide(:pw, :parent => :default) do
 
   def members=(value)
     if resource[:exclusive]
-      pw(['group', 'mod', '-M', resource[:members].join(',')])
+      pw(['group', 'mod', '-M', resource[:members].join(','), resource[:name]])
     else
-      pw(['group', 'mod', '-m', resource[:members].join(',')])
+      pw(['group', 'mod', '-m', resource[:members].join(','), resource[:name]])
     end
   end
 end
