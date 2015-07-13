@@ -4,7 +4,7 @@ Puppet::Type.type(:groupmembership).provide(:default) do
   def members
     output = getent_group()
     fields = output.split(':')
-    member_list = fields[-1].split(',').map {|i| i.chomp }.sort
+    member_list = fields[-1].split(',').map {|i| i.chomp }.reject {|i| i.size == 0 }.sort
     Puppet.debug("Current membership for #{resource[:name]} is #{member_list}")
     return member_list
   end
