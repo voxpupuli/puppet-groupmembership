@@ -3,8 +3,8 @@ Puppet::Type.type(:groupmembership).provide(:gpasswd, :parent => :default) do
   defaultfor :kernel => [:linux]
 
   def members=(value)
-    member_list = resource[:members].join(',').sort
-    Puppet.debug("Setting membership on #{resource[:name]} to #{member_list.sort}")
+    member_list = resource[:members].sort.join(',')
+    Puppet.debug("Setting membership on #{resource[:name]} to #{member_list}")
     if resource[:exclusive]
       execute(['/usr/bin/gpasswd', '-M', member_list, resource[:name]], :failonfail => false)
     else
