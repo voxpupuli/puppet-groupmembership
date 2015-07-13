@@ -5,6 +5,10 @@ Puppet::Type.type(:groupmembership).provide(:gpasswd, :parent => :default) do
   commands :gpasswd => '/usr/bin/gpasswd'
 
   def members=(value)
-    gpasswd(['-M', resource[:members].join(',')])
+    if resource[:exclusive]
+      gpasswd(['-M', resource[:members].join(',')])
+    else
+      gpasswd(['-m', resource[:members].join(',')])
+    end
   end
 end
