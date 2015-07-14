@@ -1,4 +1,4 @@
-Puppet::Type.type(:groupmembership).provide(:pw, :parent => :default) do
+Puppet::Type.type(:groupmembership).provide(:pw, :parent => :getent) do
   confine :kernel => [:freebsd]
   defaultfor :kernel => [:freebsd]
 

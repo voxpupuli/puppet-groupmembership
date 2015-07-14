@@ -1,4 +1,4 @@
-Puppet::Type.type(:groupmembership).provide(:default) do
+Puppet::Type.type(:groupmembership).provide(:getent) do
   desc "Manage a POSIX group's membership"
 
   confine :kernel => [:linux, :freebsd]

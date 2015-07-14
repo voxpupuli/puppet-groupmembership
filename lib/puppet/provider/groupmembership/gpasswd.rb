@@ -1,4 +1,4 @@
-Puppet::Type.type(:groupmembership).provide(:gpasswd, :parent => :default) do
+Puppet::Type.type(:groupmembership).provide(:gpasswd, :parent => :getent) do
   confine :kernel => [:linux]
   defaultfor :kernel => [:linux]
 
