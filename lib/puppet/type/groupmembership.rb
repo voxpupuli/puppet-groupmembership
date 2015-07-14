@@ -13,6 +13,13 @@ Puppet::Type.newtype(:groupmembership) do
   end
 
   newproperty(:members, :array_matching => :all) do
+    def insync?(is)
+      if is.is_a?(Array) and @should.is_a?(Array)
+        is.sort == @should.sort
+      else
+        is == @should
+      end
+    end
   end
 
 end
