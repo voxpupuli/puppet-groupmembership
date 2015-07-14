@@ -1,0 +1,41 @@
+{
+  "name": "ploperations-groupmembership",
+  "version": "0.0.1",
+  "author": "zleslie",
+  "summary": "POSIX Group membership",
+  "license": "Apache License Version 2.0",
+  "source": "git://github.com/xaque208/puppet-groupmembership.git",
+  "project_page": "https://github.com/xaque208/puppet-groupmembership",
+  "issues_url": "https://github.com/xaque208/puppet-groupmembership/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "10.1",
+        "10.0",
+        "9.3",
+        "8.4"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.2.0 < 3.7.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "description": "A module to manage group membership",
+  "dependencies": [
+  ]
+}
