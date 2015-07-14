@@ -6,9 +6,9 @@ Puppet::Type.type(:groupmembership).provide(:pw, :parent => :getent) do
     member_list = resource[:members].sort.join(',')
     Puppet.debug("Setting membership on #{resource[:name]} to #{member_list}")
     if resource[:exclusive]
-      execute(['/usr/sbin/pw', 'group', 'mod', '-M', resource[:members].join(','), resource[:name]], :failonfail => false)
+      execute(['/usr/sbin/pw', 'group', 'mod', resource[:name], '-M', resource[:members].join(',')], :failonfail => false)
     else
-      execute(['/usr/sbin/pw', 'group', 'mod', '-m', resource[:members].join(','), resource[:name]], :failonfail => false)
+      execute(['/usr/sbin/pw', 'group', 'mod', resource[:name], '-m', resource[:members].join(','),], :failonfail => false)
     end
   end
 end
