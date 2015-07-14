@@ -1,6 +1,8 @@
 Puppet::Type.type(:groupmembership).provide(:default) do
   desc "Manage a POSIX group's membership"
 
+  confine :kernel => [:linux, :freebsd]
+
   def members
     output = getent_group()
     fields = output.split(':')
