@@ -23,6 +23,12 @@
         "7",
         "8"
       ]
+    },
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "5.11"
+      ]
     }
   ],
   "requirements": [
