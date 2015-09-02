@@ -11,7 +11,7 @@ Puppet::Type.type(:groupmembership).provide(:getent) do
       member_list = []
     else
       # group:pw:gid:u1,u2
-      member_list = fields[3].split(',').map {|i| i.chomp }.reject {|i| i.size == 0 }.sort
+      member_list = fields[3].strip.split(',').reject {|i| i.size == 0 }.sort
     end
 
     Puppet.debug("Current membership for #{resource[:name]} is #{member_list}")
