@@ -11,6 +11,7 @@ group :test do
   gem "puppetlabs_spec_helper"
   gem "metadata-json-lint"
   gem "rspec-puppet-facts"
+  gem "plist"
 end
 
 group :development do

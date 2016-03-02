@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dsAttrTypeStandard:AppleMetaNodeLocation</key>
+	<array>
+		<string>/Local/Default</string>
+	</array>
+	<key>dsAttrTypeStandard:GeneratedUID</key>
+	<array>
+		<string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
+	</array>
+	<key>dsAttrTypeStandard:GroupMembers</key>
+	<array>
+		<string>FFFFEEEE-DDDD-CCCC-BBBB-AAAA00000000</string>
+		<string>2E20C3FF-7179-4146-8C0D-7FD9E0E5139C</string>
+	</array>
+	<key>dsAttrTypeStandard:GroupMembership</key>
+	<array>
+		<string>root</string>
+		<string>zach</string>
+	</array>
+	<key>dsAttrTypeStandard:Password</key>
+	<array>
+		<string>*</string>
+	</array>
+	<key>dsAttrTypeStandard:PrimaryGroupID</key>
+	<array>
+		<string>80</string>
+	</array>
+	<key>dsAttrTypeStandard:RealName</key>
+	<array>
+		<string>Administrators</string>
+	</array>
+	<key>dsAttrTypeStandard:RecordName</key>
+	<array>
+		<string>admin</string>
+		<string>BUILTIN\Administrators</string>
+	</array>
+	<key>dsAttrTypeStandard:RecordType</key>
+	<array>
+		<string>dsRecTypeStandard:Groups</string>
+	</array>
+	<key>dsAttrTypeStandard:SMBSID</key>
+	<array>
+		<string>S-1-5-32-544</string>
+	</array>
+</dict>
+</plist>

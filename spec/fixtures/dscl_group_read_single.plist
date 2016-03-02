@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dsAttrTypeStandard:AppleMetaNodeLocation</key>
+	<array>
+		<string>/Local/Default</string>
+	</array>
+	<key>dsAttrTypeStandard:GeneratedUID</key>
+	<array>
+		<string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000000</string>
+	</array>
+	<key>dsAttrTypeStandard:GroupMembers</key>
+	<array>
+		<string>FFFFEEEE-DDDD-CCCC-BBBB-AAAA00000000</string>
+	</array>
+	<key>dsAttrTypeStandard:GroupMembership</key>
+	<array>
+		<string>root</string>
+	</array>
+	<key>dsAttrTypeStandard:Password</key>
+	<array>
+		<string>*</string>
+	</array>
+	<key>dsAttrTypeStandard:PrimaryGroupID</key>
+	<array>
+		<string>0</string>
+	</array>
+	<key>dsAttrTypeStandard:RealName</key>
+	<array>
+		<string>System Group</string>
+	</array>
+	<key>dsAttrTypeStandard:RecordName</key>
+	<array>
+		<string>wheel</string>
+	</array>
+	<key>dsAttrTypeStandard:RecordType</key>
+	<array>
+		<string>dsRecTypeStandard:Groups</string>
+	</array>
+</dict>
+</plist>
