@@ -11,6 +11,7 @@
     {
       "operatingsystem": "FreeBSD",
       "operatingsystemrelease": [
+        "10.2",
         "10.1",
         "10.0",
         "9.3",
@@ -28,6 +29,13 @@
       "operatingsystem": "Solaris",
       "operatingsystemrelease": [
         "5.11"
+      ]
+    },
+    {
+      "operatingsystem": "Darwin",
+      "operatingsystemrelease": [
+        "11",
+        "10"
       ]
     }
   ],
