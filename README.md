@@ -1,5 +1,7 @@
 # Groupmembership
 
+[![Puppet Forge](https://img.shields.io/puppetforge/v/zleslie/groupmembership.svg)]() [![Build Status](https://travis-ci.org/xaque208/puppet-groupmembership.svg?branch=master)](https://travis-ci.org/xaque208/puppet-groupmembership)
+
 A simple type to manage the membership of a group, from the perspective of the group.
 
 It is worth nothing, if you are using this model of membership, you should not
