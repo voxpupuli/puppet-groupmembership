@@ -1,6 +1,6 @@
 {
   "name": "zleslie-groupmembership",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "zleslie",
   "summary": "POSIX Group membership",
   "license": "Apache-2.0",
