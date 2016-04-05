@@ -1,5 +1,3 @@
-require 'plist'
-
 Puppet::Type.type(:groupmembership).provide(:dscl) do
   desc "Manage a POSIX group's membership"
 
@@ -60,6 +58,7 @@ Puppet::Type.type(:groupmembership).provide(:dscl) do
   end
 
   def self.parse_plist(xml_data)
+    require 'plist'
     data = Plist.parse_xml(xml_data)
     data
   end
