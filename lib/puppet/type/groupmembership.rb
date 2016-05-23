@@ -5,6 +5,10 @@ Puppet::Type.newtype(:groupmembership) do
     self[:name]
   end
 
+  autorequire(:user) do
+    self[:members]
+  end
+
   newparam :name, :namevar => true
 
   newparam(:exclusive) do
