@@ -1,0 +1,9 @@
+Gemfile:
+  optional:
+    ':extra':
+      - gem: 'plist'
+        version: '~> 3.0.0'
+    ':testextra':
+      - gem: 'rspec-mocks'
+      - gem: 'rspec-expectations'
+mock_with: ':rspec'

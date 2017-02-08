@@ -9,21 +9,20 @@ Puppet::Type.newtype(:groupmembership) do
     self[:members]
   end
 
-  newparam :name, :namevar => true
+  newparam :name, namevar: true
 
   newparam(:exclusive) do
     defaultto :false
     newvalues(:true, :false)
   end
 
-  newproperty(:members, :array_matching => :all) do
+  newproperty(:members, array_matching: :all) do
     def insync?(is)
-      if is.is_a?(Array) and @should.is_a?(Array)
+      if is.is_a?(Array) && @should.is_a?(Array)
         is.sort == @should.sort
       else
         is == @should
       end
     end
   end
-
 end

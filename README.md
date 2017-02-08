@@ -18,3 +18,7 @@ Pretty easy, right?
 There is also an `exclusive` option to ensure that the only members of a group
 are those that have been expressed as part of the members parameter.
 
+## Requirements
+
+On OSX, you will need the `plist` gem.
+
