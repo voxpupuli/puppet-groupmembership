@@ -48,12 +48,8 @@
   ],
   "requirements": [
     {
-      "name": "pe",
-      "version_requirement": ">= 3.2.0 < 3.7.0"
-    },
-    {
       "name": "puppet",
-      "version_requirement": "3.x"
+      "version_requirement": ">= 4.2.0 < 5.0.0"
     }
   ],
   "description": "A module to manage group membership",
