@@ -41,7 +41,7 @@ describe provider_class do
       end
 
       it 'returns the members' do
-        expect(resource.provider.members).to eq(%w(root foo bar).sort)
+        expect(resource.provider.members).to eq(%w[root foo bar].sort)
       end
     end
   end
