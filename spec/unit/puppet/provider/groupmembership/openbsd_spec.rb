@@ -12,8 +12,8 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
 
   context '#members=' do
     it 'makes the call to add missing users' do
-      resource[:members] = %w(zach root florian)
-      allow(provider).to receive(:getent_group).twice { 'wheel:*:0:root,zach' }
+      resource[:members] = %w[zach root florian]
+      allow(provider).to(receive(:getent_group).twice { 'wheel:*:0:root,zach' })
       provider.expects(:execute).with([
                                         '/usr/bin/getent',
                                         'group',
@@ -25,11 +25,11 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
                                         'wheel',
                                         'florian'
                                       ], failonfail: false)
-      provider.members = %w(zach root florian)
+      provider.members = %w[zach root florian]
     end
 
     it 'executes the correct sed when exclusive is set' do
-      resource[:members] = %w(zach root)
+      resource[:members] = %w[zach root]
       resource[:exclusive] = true
 
       allow(provider).to receive(:getent_group) { 'wheel:*:0:root,zach' }
@@ -40,7 +40,7 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
                                         's/wheel.*/wheel:*:0:root,zach/',
                                         '/etc/group'
                                       ])
-      provider.members = %w(zach root)
+      provider.members = %w[zach root]
     end
   end
 end

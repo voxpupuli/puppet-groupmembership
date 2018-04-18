@@ -19,14 +19,14 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
 
     admin_group_xml = File.read('spec/fixtures/dscl_group_read_multi.plist')
     it 'has the correct members' do
-      expect(described_class.parse_plist(admin_group_xml)['dsAttrTypeStandard:GroupMembership']).to eq(%w(root zach))
+      expect(described_class.parse_plist(admin_group_xml)['dsAttrTypeStandard:GroupMembership']).to eq(%w[root zach])
     end
   end
 
   context '#members=' do
     it 'makes the call to add missing members' do
-      allow(provider).to receive(:members) { %w(root zach) }
-      resource[:members] = %w(zach root florian)
+      allow(provider).to receive(:members) { %w[root zach] }
+      resource[:members] = %w[zach root florian]
       provider.expects(:execute).with(
         [
           '/usr/bin/dscl',
@@ -38,13 +38,13 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
         ],
         failonfail: false
       )
-      provider.members = %w(zach root florian)
+      provider.members = %w[zach root florian]
     end
 
     context 'with exclusive' do
       it 'makes the call to remove extra members' do
-        allow(provider).to receive(:members) { %w(root zach florian) }
-        resource[:members] = %w(zach root)
+        allow(provider).to receive(:members) { %w[root zach florian] }
+        resource[:members] = %w[zach root]
         resource[:exclusive] = :true
         provider.expects(:execute).with(
           [
@@ -57,7 +57,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
           ],
           failonfail: false
         )
-        provider.members = %w(zach root)
+        provider.members = %w[zach root]
       end
     end
   end
