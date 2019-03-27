@@ -27,7 +27,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
     it 'makes the call to add missing members' do
       allow(provider).to receive(:members) { %w[root zach] }
       resource[:members] = %w[zach root florian]
-      provider.expects(:execute).with(
+      expect(provider).to receive(:execute).with(
         [
           '/usr/bin/dscl',
           '.',
@@ -46,7 +46,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
         allow(provider).to receive(:members) { %w[root zach florian] }
         resource[:members] = %w[zach root]
         resource[:exclusive] = :true
-        provider.expects(:execute).with(
+        expect(provider).to receive(:execute).with(
           [
             '/usr/bin/dscl',
             '.',

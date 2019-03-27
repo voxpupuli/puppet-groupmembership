@@ -14,17 +14,14 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
     it 'makes the call to add missing users' do
       resource[:members] = %w[zach root florian]
       allow(provider).to(receive(:getent_group).twice { 'wheel:*:0:root,zach' })
-      provider.expects(:execute).with([
-                                        '/usr/bin/getent',
-                                        'group',
-                                        'wheel'
-                                      ], failonfail: false) { 'wheel:*:0:root,zach' }
-      provider.expects(:execute).with([
-                                        '/usr/sbin/usermod',
-                                        '-G',
-                                        'wheel',
-                                        'florian'
-                                      ], failonfail: false)
+      expect(provider).to receive(:execute).with(
+        [
+          '/usr/sbin/usermod',
+          '-G',
+          'wheel',
+          'florian'
+        ], failonfail: false
+      )
       provider.members = %w[zach root florian]
     end
 
@@ -33,13 +30,15 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
       resource[:exclusive] = true
 
       allow(provider).to receive(:getent_group) { 'wheel:*:0:root,zach' }
-      provider.expects(:execute).with([
-                                        '/usr/bin/sed',
-                                        '-i.new',
-                                        '-e',
-                                        's/wheel.*/wheel:*:0:root,zach/',
-                                        '/etc/group'
-                                      ])
+      expect(provider).to receive(:execute).with(
+        [
+          '/usr/bin/sed',
+          '-i.new',
+          '-e',
+          's/wheel.*/wheel:*:0:root,zach/',
+          '/etc/group'
+        ]
+      )
       provider.members = %w[zach root]
     end
   end
