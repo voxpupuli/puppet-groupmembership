@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
+describe Puppet::Type.type(:groupmembership).provider(:pw) do
   let(:resource) do
     Puppet::Type.type(:groupmembership).new(
       name: 'wheel',
@@ -14,7 +14,7 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
   context '#members=' do
     it 'makes the call to add missing users' do
       resource[:members] = %w[zach root florian]
-      allow(provider).to receive(:execute).with(
+      allow(resource.provider).to receive(:execute).with(
         [
           '/usr/bin/getent',
           'group',
@@ -22,17 +22,18 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
         ], failonfail: false, combine: true
       ) { 'wheel:*:0:root,zach' }
 
-      allow(provider).to receive(:execute).with(
+      allow(resource.provider).to receive(:execute).with(
         [
-          '/usr/sbin/usermod',
-          '-G',
+          '/usr/sbin/pw',
+          'group',
+          'mod',
           'wheel',
-          'florian'
+          '-m',
+          'florian,root,zach'
         ], failonfail: false
       )
 
-      provider.members = %w[zach root florian]
-      expect(provider).to have_received(:execute).exactly(3).times
+      resource.provider.members = %w[zach root florian]
     end
 
     it 'executes the correct sed when exclusive is set' do
@@ -40,17 +41,17 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
       resource[:exclusive] = true
 
       allow(provider).to receive(:getent_group) { 'wheel:*:0:root,zach' }
-      allow(provider).to receive(:execute).with(
+      allow(resource.provider).to receive(:execute).with(
         [
-          '/usr/bin/sed',
-          '-i.new',
-          '-e',
-          's/wheel.*/wheel:*:0:root,zach/',
-          '/etc/group'
-        ]
+          '/usr/sbin/pw',
+          'group',
+          'mod',
+          'wheel',
+          '-M',
+          'root,zach'
+        ], failonfail: false
       )
       provider.members = %w[zach root]
-      expect(provider).to have_received(:execute)
     end
   end
 end
