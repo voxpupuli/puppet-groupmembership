@@ -24,7 +24,6 @@ Puppet::Type.type(:groupmembership).provide(:openbsd, parent: :getent) do
         ]
       )
     else
-      require 'pp'
       current_members = members
       Array(value).each do |member|
         next if current_members.include? member

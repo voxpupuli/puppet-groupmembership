@@ -6,8 +6,8 @@ provider_class = type_class.provider(:getent)
 describe provider_class do
   context '#members' do
     context 'with a single group member' do
-      let!(:info) { 'wheel:*:0:root' }
-      let!(:resource) do
+      let(:info) { 'wheel:*:0:root' }
+      let(:resource) do
         Puppet::Type.type(:groupmembership).new(
           name: 'wheel',
           provider: 'getent',
@@ -26,8 +26,8 @@ describe provider_class do
     end
 
     context 'with multiple group members' do
-      let!(:info) { 'wheel:*:0:root,foo,bar' }
-      let!(:resource) do
+      let(:info) { 'wheel:*:0:root,foo,bar' }
+      let(:resource) do
         Puppet::Type.type(:groupmembership).new(
           name: 'wheel',
           provider: 'getent',
