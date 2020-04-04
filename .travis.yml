@@ -3,8 +3,7 @@ dist: bionic
 language: ruby
 cache: bundler
 before_install:
-  - gem update --system
-  - gem update bundler
+  - yes | gem update --system
   - bundle --version
 script:
   - 'bundle exec rake $CHECK'
@@ -13,19 +12,36 @@ matrix:
   include:
   - rvm: 2.4.4
     bundler_args: --without system_tests development release
-    env: PUPPET_VERSION="~> 5.0" CHECK=test PARALLEL_TEST_PROCESSORS=12
+    env: PUPPET_VERSION="~> 5.0" CHECK=test
   - rvm: 2.5.3
     bundler_args: --without system_tests development release
     env: PUPPET_VERSION="~> 6.0" CHECK=test_with_coveralls
   - rvm: 2.5.3
     bundler_args: --without system_tests development release
     env: PUPPET_VERSION="~> 6.0" CHECK=rubocop
-  - rvm: 2.5.3
+  - rvm: 2.4.4
     bundler_args: --without system_tests development release
-    env: PUPPET_VERSION="~> 6.0" CHECK=build DEPLOY_TO_FORGE=yes
+    env: PUPPET_VERSION="~> 5.0" CHECK=build DEPLOY_TO_FORGE=yes
 branches:
   only:
   - master
   - /^v\d/
 notifications:
   email: false
+  webhooks: https://voxpupu.li/incoming/travis
+  irc:
+    on_success: always
+    on_failure: always
+    channels:
+      - "chat.freenode.org#voxpupuli-notifications"
+deploy:
+  provider: puppetforge
+  user: puppet
+  password:
+    secure: "cQXCjI2KnP9iWbB6wYTRuxSFNNJ9iZQeIPghdtg/8AWffI/YRLn9vRnxT9pu45j9mU0E3xYdd991k1fz7a4eY++ITW71+b4OJYj6bRawUfB4Y3/mFUfiggkMsZ2Kw5zjSqh0dNdGIvg8mi1EszpGSpyLIX8UTmxznbGJndV4GNxuUUruN406FfOPD/9HjbSUX+88qKpBVmgMt2i7lxKYFk8pPYT7+SCj8tAiZ6vpk2ymjmqwWUhlEJUGBbpGPuJ8KH3SjScCOl7Yibbdd4rR4gbXXFfx27vaWB7XwETYgDYBJSQO5cSp/S/WEg168ELY90usMiKkKcECe+fDa3/ckBYtq3XqwPjDHZkxsnlBqnLPbPbldonewIhSRqHXM+eh86teY5AP8OTGoseSm5XTcb6FNYwItuufvrUpJiDUtunDBW1R1NGDgOwJxhJ+tQtXTL3mSSDOCrnAcGiYTN7htOze5puRMnOFeEf+BGExvv4SOALMmpF+YJSMlWRi4yYsqJ0BYqvJuRH/dH3FM9Zs9RU6nzBmyd7qQPqd0jylt/zCdRP5wJF07urLrh6XhV9p7UbZnoEe+yZuc04QntjedqlLFvdXncTFB14t10JBWatXsTD2zQkZhBwHj58r3tfao2QfgYFGHKKotaqufIkiJW76fwjd26rjVy4tPc76I98="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true
+    # Only publish the build marked with "DEPLOY_TO_FORGE"
+    condition: "$DEPLOY_TO_FORGE = yes"
