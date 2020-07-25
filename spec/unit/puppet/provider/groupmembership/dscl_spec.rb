@@ -50,7 +50,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
 
   context '#members=' do
     it 'makes the call to add missing members' do
-      allow(provider).to receive(:members) { %w[root zach] }
+      allow(provider).to receive(:members) { %w[root zach] } # rubocop:disable RSpec/ReturnFromStub
       resource[:members] = %w[zach root florian]
       allow(provider).to receive(:execute).with(
         [
@@ -69,7 +69,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
 
     context 'with exclusive' do
       it 'makes the call to remove extra members' do
-        allow(provider).to receive(:members) { %w[root zach florian] }
+        allow(provider).to receive(:members) { %w[root zach florian] } # rubocop:disable RSpec/ReturnFromStub
         resource[:members] = %w[zach root]
         resource[:exclusive] = :true
         allow(provider).to receive(:execute).with(

@@ -39,7 +39,7 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
       resource[:members] = %w[zach root]
       resource[:exclusive] = true
 
-      allow(provider).to receive(:getent_group) { 'wheel:*:0:root,zach' }
+      allow(provider).to receive(:getent_group) { 'wheel:*:0:root,zach' } # rubocop:disable RSpec/ReturnFromStub
       allow(provider).to receive(:execute).with(
         [
           '/usr/bin/sed',
