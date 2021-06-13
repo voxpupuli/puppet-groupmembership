@@ -1,25 +1,26 @@
 {
-  "name": "zleslie-groupmembership",
+  "name": "puppet-groupmembership",
   "version": "1.1.0",
-  "author": "zleslie",
+  "author": "Vox Pupuli",
   "summary": "POSIX Group membership",
   "license": "Apache-2.0",
-  "source": "git://github.com/xaque208/puppet-groupmembership.git",
-  "project_page": "https://github.com/xaque208/puppet-groupmembership",
-  "issues_url": "https://github.com/xaque208/puppet-groupmembership/issues",
+  "source": "https://github.com/voxpupuli/puppet-groupmembership.git",
+  "project_page": "https://github.com/voxpupuli/puppet-groupmembership",
+  "issues_url": "https://github.com/voxpupuli/puppet-groupmembership/issues",
   "operatingsystem_support": [
     {
       "operatingsystem": "FreeBSD",
       "operatingsystemrelease": [
+        "11",
         "12",
-        "11"
+        "13"
       ]
     },
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "7",
-        "8"
+        "9",
+        "10"
       ]
     },
     {
@@ -46,7 +47,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.2.0 < 5.0.0"
+      "version_requirement": ">= 6.1.0 < 8.0.0"
     }
   ],
   "description": "A module to manage group membership",
