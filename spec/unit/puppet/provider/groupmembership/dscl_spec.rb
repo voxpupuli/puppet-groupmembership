@@ -12,7 +12,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
     )
   end
 
-  context '#parse_plist' do
+  describe '#parse_plist' do
     wheel_group_xml = File.read('spec/fixtures/dscl_group_read_single.plist')
     it 'has the correct members' do
       expect(described_class.parse_plist(wheel_group_xml)['dsAttrTypeStandard:GroupMembership']).to eq(['root'])
@@ -24,7 +24,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
     end
   end
 
-  context '#members' do
+  describe '#members' do
     # wheel_group_xml = File.read('spec/fixtures/dscl_group_read_single.plist')
     # it 'has the correct members' do
     #   expect(described_class.parse_plist(wheel_group_xml)['dsAttrTypeStandard:GroupMembership']).to eq(['root'])
@@ -48,7 +48,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
     end
   end
 
-  context '#members=' do
+  describe '#members=' do
     it 'makes the call to add missing members' do
       allow(provider).to receive(:members) { %w[root zach] } # rubocop:disable RSpec/ReturnFromStub
       resource[:members] = %w[zach root florian]

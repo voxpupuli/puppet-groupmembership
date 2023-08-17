@@ -1,7 +1,7 @@
 Puppet::Type.type(:groupmembership).provide(:getent) do
   desc "Manage a POSIX group's membership"
 
-  confine kernel: [:linux, :freebsd, :openbsd]
+  confine kernel: %i[linux freebsd openbsd]
 
   def members
     output = getent_group

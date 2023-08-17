@@ -11,7 +11,7 @@ describe Puppet::Type.type(:groupmembership).provider(:pw) do
 
   let(:provider) { described_class.new(name: 'wheel') }
 
-  context '#members=' do
+  describe '#members=' do
     it 'makes the call to add missing users' do
       resource[:members] = %w[zach root florian]
       allow(resource.provider).to receive(:execute).with(
@@ -20,7 +20,7 @@ describe Puppet::Type.type(:groupmembership).provider(:pw) do
           'group',
           'wheel'
         ], failonfail: false, combine: true
-      ) { 'wheel:*:0:root,zach' }
+      ).and_return('wheel:*:0:root,zach')
 
       allow(resource.provider).to receive(:execute).with(
         [

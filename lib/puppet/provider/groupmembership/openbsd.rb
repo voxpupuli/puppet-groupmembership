@@ -27,6 +27,7 @@ Puppet::Type.type(:groupmembership).provide(:openbsd, parent: :getent) do
       current_members = members
       Array(value).each do |member|
         next if current_members.include? member
+
         execute(
           [
             '/usr/sbin/usermod',
