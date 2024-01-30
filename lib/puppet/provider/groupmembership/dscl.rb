@@ -32,6 +32,7 @@ Puppet::Type.type(:groupmembership).provide(:dscl) do
     if resource[:exclusive]
       current_members.each do |username|
         next if value.include? username
+
         execute(
           [
             '/usr/bin/dscl',
@@ -48,6 +49,7 @@ Puppet::Type.type(:groupmembership).provide(:dscl) do
 
     value.each do |username|
       next if current_members.include? username
+
       execute(
         [
           '/usr/bin/dscl',
