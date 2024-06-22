@@ -12,7 +12,8 @@
       "operatingsystem": "FreeBSD",
       "operatingsystemrelease": [
         "12",
-        "13"
+        "13",
+        "14"
       ]
     },
     {
@@ -50,5 +51,7 @@
     }
   ],
   "description": "A module to manage group membership",
-  "dependencies": []
+  "dependencies": [
+
+  ]
 }
