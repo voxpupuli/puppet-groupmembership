@@ -1,6 +1,6 @@
 {
   "name": "puppet-groupmembership",
-  "version": "2.0.1-rc0",
+  "version": "3.0.0",
   "author": "Vox Pupuli",
   "summary": "POSIX Group membership",
   "license": "Apache-2.0",
@@ -52,7 +52,5 @@
     }
   ],
   "description": "A module to manage group membership",
-  "dependencies": [
-
-  ]
+  "dependencies": []
 }

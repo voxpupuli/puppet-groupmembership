@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.0.0](https://github.com/voxpupuli/puppet-groupmembership/tree/v3.0.0) (2025-12-13)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-groupmembership/compare/v2.0.0...v3.0.0)
+
+**Breaking changes:**
+
+- Drop puppet, update openvox minimum version to 8.19 [\#48](https://github.com/voxpupuli/puppet-groupmembership/pull/48) ([TheMeier](https://github.com/TheMeier))
+- Drop Puppet 6 support [\#32](https://github.com/voxpupuli/puppet-groupmembership/pull/32) ([bastelfreak](https://github.com/bastelfreak))
+- Drop support for Debian 9, FreeBSD 11 \(EOL\) [\#28](https://github.com/voxpupuli/puppet-groupmembership/pull/28) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Add support for Debian 12 [\#50](https://github.com/voxpupuli/puppet-groupmembership/pull/50) ([smortex](https://github.com/smortex))
+- metadata.json: Add OpenVox [\#44](https://github.com/voxpupuli/puppet-groupmembership/pull/44) ([jstraw](https://github.com/jstraw))
+- Add support for FreeBSD 14 [\#42](https://github.com/voxpupuli/puppet-groupmembership/pull/42) ([smortex](https://github.com/smortex))
+- Add Puppet 8 support [\#34](https://github.com/voxpupuli/puppet-groupmembership/pull/34) ([bastelfreak](https://github.com/bastelfreak))
+- Add support for Debian 11 [\#29](https://github.com/voxpupuli/puppet-groupmembership/pull/29) ([smortex](https://github.com/smortex))
+
+**Merged pull requests:**
+
+- Fix badges for module and add some new ones [\#33](https://github.com/voxpupuli/puppet-groupmembership/pull/33) ([voxel01](https://github.com/voxel01))
+- Add missing Apache-2 license [\#31](https://github.com/voxpupuli/puppet-groupmembership/pull/31) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v2.0.0](https://github.com/voxpupuli/puppet-groupmembership/tree/v2.0.0) (2021-06-13)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-groupmembership/compare/1.1.0...v2.0.0)
@@ -27,8 +50,8 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Update from xaque208 modulesync\_config [\#13](https://github.com/voxpupuli/puppet-groupmembership/pull/13) ([xaque208](https://github.com/xaque208))
-- modulesync 1.9.0-16-gc46b42a [\#12](https://github.com/voxpupuli/puppet-groupmembership/pull/12) ([xaque208](https://github.com/xaque208))
+- Update from xaque208 modulesync\_config [\#13](https://github.com/voxpupuli/puppet-groupmembership/pull/13) ([zachfi](https://github.com/zachfi))
+- modulesync 1.9.0-16-gc46b42a [\#12](https://github.com/voxpupuli/puppet-groupmembership/pull/12) ([zachfi](https://github.com/zachfi))
 
 ## [1.0.0](https://github.com/voxpupuli/puppet-groupmembership/tree/1.0.0) (2018-02-11)
 
@@ -36,8 +59,8 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Update from xaque208 modulesync\_config [\#10](https://github.com/voxpupuli/puppet-groupmembership/pull/10) ([xaque208](https://github.com/xaque208))
-- modulesync 2017-05-03 [\#9](https://github.com/voxpupuli/puppet-groupmembership/pull/9) ([xaque208](https://github.com/xaque208))
+- Update from xaque208 modulesync\_config [\#10](https://github.com/voxpupuli/puppet-groupmembership/pull/10) ([zachfi](https://github.com/zachfi))
+- modulesync 2017-05-03 [\#9](https://github.com/voxpupuli/puppet-groupmembership/pull/9) ([zachfi](https://github.com/zachfi))
 
 ## [0.2.0](https://github.com/voxpupuli/puppet-groupmembership/tree/0.2.0) (2017-02-20)
 
@@ -45,7 +68,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- modulesync 2017-02-07 [\#8](https://github.com/voxpupuli/puppet-groupmembership/pull/8) ([xaque208](https://github.com/xaque208))
+- modulesync 2017-02-07 [\#8](https://github.com/voxpupuli/puppet-groupmembership/pull/8) ([zachfi](https://github.com/zachfi))
 
 ## [0.1.1](https://github.com/voxpupuli/puppet-groupmembership/tree/0.1.1) (2016-05-24)
 
@@ -57,7 +80,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Ensure that we also require the users are created [\#7](https://github.com/voxpupuli/puppet-groupmembership/pull/7) ([xaque208](https://github.com/xaque208))
+- Ensure that we also require the users are created [\#7](https://github.com/voxpupuli/puppet-groupmembership/pull/7) ([zachfi](https://github.com/zachfi))
 
 ## [0.0.10](https://github.com/voxpupuli/puppet-groupmembership/tree/0.0.10) (2016-04-05)
 
@@ -69,7 +92,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Update testing to include puppet4 [\#6](https://github.com/voxpupuli/puppet-groupmembership/pull/6) ([xaque208](https://github.com/xaque208))
+- Update testing to include puppet4 [\#6](https://github.com/voxpupuli/puppet-groupmembership/pull/6) ([zachfi](https://github.com/zachfi))
 
 ## [0.0.8](https://github.com/voxpupuli/puppet-groupmembership/tree/0.0.8) (2016-03-05)
 
@@ -77,7 +100,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Add initial openbsd provider [\#5](https://github.com/voxpupuli/puppet-groupmembership/pull/5) ([xaque208](https://github.com/xaque208))
+- Add initial openbsd provider [\#5](https://github.com/voxpupuli/puppet-groupmembership/pull/5) ([zachfi](https://github.com/zachfi))
 
 ## [0.0.7](https://github.com/voxpupuli/puppet-groupmembership/tree/0.0.7) (2016-03-05)
 
@@ -85,7 +108,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Initial Darwin support [\#4](https://github.com/voxpupuli/puppet-groupmembership/pull/4) ([xaque208](https://github.com/xaque208))
+- Initial Darwin support [\#4](https://github.com/voxpupuli/puppet-groupmembership/pull/4) ([zachfi](https://github.com/zachfi))
 
 ## [0.0.6](https://github.com/voxpupuli/puppet-groupmembership/tree/0.0.6) (2015-09-02)
 
@@ -93,7 +116,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Simplify some code [\#3](https://github.com/voxpupuli/puppet-groupmembership/pull/3) ([xaque208](https://github.com/xaque208))
+- Simplify some code [\#3](https://github.com/voxpupuli/puppet-groupmembership/pull/3) ([zachfi](https://github.com/zachfi))
 
 ## [0.0.5](https://github.com/voxpupuli/puppet-groupmembership/tree/0.0.5) (2015-08-13)
 
@@ -105,7 +128,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Add Solaris support [\#2](https://github.com/voxpupuli/puppet-groupmembership/pull/2) ([xaque208](https://github.com/xaque208))
+- Add Solaris support [\#2](https://github.com/voxpupuli/puppet-groupmembership/pull/2) ([zachfi](https://github.com/zachfi))
 
 ## [0.0.2](https://github.com/voxpupuli/puppet-groupmembership/tree/0.0.2) (2015-07-14)
 
@@ -117,7 +140,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Initial work [\#1](https://github.com/voxpupuli/puppet-groupmembership/pull/1) ([xaque208](https://github.com/xaque208))
+- Initial work [\#1](https://github.com/voxpupuli/puppet-groupmembership/pull/1) ([zachfi](https://github.com/zachfi))
 
 
 
