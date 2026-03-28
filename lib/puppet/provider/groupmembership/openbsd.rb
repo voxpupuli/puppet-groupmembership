@@ -20,8 +20,8 @@ Puppet::Type.type(:groupmembership).provide(:openbsd, parent: :getent) do
           '-i.new',
           '-e',
           "s/#{resource[:name]}.*/#{replacement}/",
-          '/etc/group'
-        ]
+          '/etc/group',
+        ],
       )
     else
       current_members = members
@@ -33,9 +33,9 @@ Puppet::Type.type(:groupmembership).provide(:openbsd, parent: :getent) do
             '/usr/sbin/usermod',
             '-G',
             resource[:name],
-            member
+            member,
           ],
-          failonfail: false
+          failonfail: false,
         )
       end
     end

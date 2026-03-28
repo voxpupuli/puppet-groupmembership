@@ -5,7 +5,7 @@ describe Puppet::Type.type(:groupmembership).provider(:pw) do
     Puppet::Type.type(:groupmembership).new(
       name: 'wheel',
       members: ['root'],
-      provider: provider
+      provider: provider,
     )
   end
 
@@ -18,7 +18,7 @@ describe Puppet::Type.type(:groupmembership).provider(:pw) do
         [
           '/usr/bin/getent',
           'group',
-          'wheel'
+          'wheel',
         ], failonfail: false, combine: true
       ).and_return('wheel:*:0:root,zach')
 
@@ -29,7 +29,7 @@ describe Puppet::Type.type(:groupmembership).provider(:pw) do
           'mod',
           'wheel',
           '-m',
-          'florian,root,zach'
+          'florian,root,zach',
         ], failonfail: false
       )
 
@@ -48,7 +48,7 @@ describe Puppet::Type.type(:groupmembership).provider(:pw) do
           'mod',
           'wheel',
           '-M',
-          'root,zach'
+          'root,zach',
         ], failonfail: false
       )
       provider.members = %w[zach root]
