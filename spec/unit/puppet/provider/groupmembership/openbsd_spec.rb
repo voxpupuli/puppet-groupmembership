@@ -5,7 +5,7 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
     Puppet::Type.type(:groupmembership).new(
       name: 'wheel',
       members: ['root'],
-      provider: provider
+      provider: provider,
     )
   end
 
@@ -18,7 +18,7 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
         [
           '/usr/bin/getent',
           'group',
-          'wheel'
+          'wheel',
         ], failonfail: false, combine: true
       ).and_return('wheel:*:0:root,zach')
 
@@ -27,7 +27,7 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
           '/usr/sbin/usermod',
           '-G',
           'wheel',
-          'florian'
+          'florian',
         ], failonfail: false
       )
 
@@ -46,8 +46,8 @@ describe Puppet::Type.type(:groupmembership).provider(:openbsd) do
           '-i.new',
           '-e',
           's/wheel.*/wheel:*:0:root,zach/',
-          '/etc/group'
-        ]
+          '/etc/group',
+        ],
       )
       provider.members = %w[zach root]
       expect(provider).to have_received(:execute)

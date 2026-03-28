@@ -8,7 +8,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
       name: 'wheel',
       members: ['root'],
       provider: provider,
-      exclusive: :false
+      exclusive: :false,
     )
   end
 
@@ -37,7 +37,7 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
           '-plist',
           '.',
           '-read',
-          '/Groups/wheel'
+          '/Groups/wheel',
         ], failonfail: false, combine: true
       ) { wheel_group_xml }
     end
@@ -59,9 +59,9 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
           '-append',
           '/Groups/wheel',
           'GroupMembership',
-          'florian'
+          'florian',
         ],
-        failonfail: false
+        failonfail: false,
       )
       provider.members = %w[zach root florian]
       expect(provider).to have_received(:execute)
@@ -79,9 +79,9 @@ describe Puppet::Type.type(:groupmembership).provider(:dscl) do
             '-delete',
             '/Groups/wheel',
             'GroupMembership',
-            'florian'
+            'florian',
           ],
-          failonfail: false
+          failonfail: false,
         )
         provider.members = %w[zach root]
         expect(provider).to have_received(:execute)

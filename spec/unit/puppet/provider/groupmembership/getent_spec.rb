@@ -12,7 +12,7 @@ describe provider_class do
           name: 'wheel',
           provider: 'getent',
           members: ['root'],
-          exclusive: :false
+          exclusive: :false,
         )
       end
 
@@ -32,7 +32,7 @@ describe provider_class do
           name: 'wheel',
           provider: 'getent',
           members: ['root'],
-          exclusive: :false
+          exclusive: :false,
         )
       end
 

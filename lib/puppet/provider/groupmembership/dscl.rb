@@ -18,10 +18,10 @@ Puppet::Type.type(:groupmembership).provide(:dscl) do
         '-plist',
         '.',
         '-read',
-        "/Groups/#{resource[:name]}"
+        "/Groups/#{resource[:name]}",
       ],
       failonfail: false,
-      combine: true
+      combine: true,
     )
     self.class.parse_plist(output)
   end
@@ -40,9 +40,9 @@ Puppet::Type.type(:groupmembership).provide(:dscl) do
             '-delete',
             "/Groups/#{resource[:name]}",
             'GroupMembership',
-            username
+            username,
           ],
-          failonfail: false
+          failonfail: false,
         )
       end
     end
@@ -57,9 +57,9 @@ Puppet::Type.type(:groupmembership).provide(:dscl) do
           '-append',
           "/Groups/#{resource[:name]}",
           'GroupMembership',
-          username
+          username,
         ],
-        failonfail: false
+        failonfail: false,
       )
     end
   end
